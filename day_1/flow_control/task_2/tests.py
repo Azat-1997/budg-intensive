@@ -1,6 +1,6 @@
 import unittest
 
-from day_1.flow_control.task_2.implementation import (
+from implementation import (
     convert_temperature,
 )
 

@@ -1,6 +1,6 @@
 import unittest
 
-from day_1.flow_control.task_3.implementation import (
+from implementation import (
     get_days_count_by_month,
 )
 

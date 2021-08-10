@@ -3,40 +3,45 @@ path.append("/home/azat/BARS_GROUP/HW/budg-intensive/day_2")
 from common import MyException
 
 class ClassFather:
+    registered_list = set()
     @staticmethod
     def get_name():
         raise MyException
 
-    @staticmethod
-    def register():
+    @classmethod
+    def register(cls):
         raise MyException
 
 
 class User1(ClassFather):
     _name = ''
 
-    @staticmethod
-    def register():
-       _name = "User1"
+    @classmethod
+    def register(cls):
+       cls._name = "User1"
+       ClassFather.registered_list.add(cls._name)
 
-    @staticmethod
-    def get_name():
-       if _name == '':
+    @classmethod
+    def get_name(cls):
+       if cls._name in ClassFather.registered_list:
+          return cls._name
+       else:
           raise MyException
-       
-       return _name
+
+       return cls._name
 
 
 class User2(ClassFather):
     _name = ''
 
-    @staticmethod
-    def register():
-       _name = "User2"
+    @classmethod
+    def register(cls):
+       cls._name = "User2"
+       ClassFather.registered_list.add(cls._name)
 
-    @staticmethod
-    def get_name():
-       if _name == '':
-          raise MyException
-
-       return _name
+    @classmethod
+    def get_name(cls):
+       if cls._name in ClassFather.registered_list:
+           return cls._name
+       else:
+           raise MyException

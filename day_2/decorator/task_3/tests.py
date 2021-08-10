@@ -1,12 +1,16 @@
 import unittest
+from sys import path
+path.append("/home/azat/BARS_GROUP/HW/budg-intensive/day_2")
 
-from day_2.decorator.task_3.implementation import (
-    counter,
-)
-from day_2.common import (
-    some_func
+from implementation import (
+    counter
 )
 
+from common import (
+
+some_func
+
+)
 
 class MyTestCase(unittest.TestCase):
 

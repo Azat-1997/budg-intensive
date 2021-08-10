@@ -1,9 +1,11 @@
 import unittest
+from sys import path
+path.append("~/BARS_GROUP/HW/budg-intensive/day_2")
 
-from day_2.decorator.task_2.implementation import (
+from implementation import (
     check_value,
 )
-from day_2.common import (
+from common import (
     MyException,
     factorial
 )

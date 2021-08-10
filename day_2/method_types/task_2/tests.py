@@ -1,9 +1,11 @@
 import unittest
+from sys import path
+path.append("/home/azat/BARS_GROUP/HW/budg-intensive/day_2")
 
-from day_2.common import (
+from common import (
     MyException,
 )
-from day_2.method_types.task_2.implementation import (
+from implementation import (
     User1,
     User2,
     ClassFather,

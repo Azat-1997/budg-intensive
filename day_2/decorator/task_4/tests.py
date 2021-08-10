@@ -1,9 +1,11 @@
 import unittest
+from sys import path
+path.append("/home/azat/BARS_GROUP/HW/budg-intensive/day_2")
 
-from day_2.decorator.task_4.implementation import (
+from implementation import (
     decorator_maker,
 )
-from day_2.common import (
+from common import (
     MyException,
     specific_func
 )

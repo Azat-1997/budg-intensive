@@ -1,5 +1,0 @@
-class MathClock:
-    pass
-
-
-

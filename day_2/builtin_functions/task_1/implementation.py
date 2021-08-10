@@ -11,81 +11,44 @@ class Value:
         return self.val
 
     def __add__(self, other):
-        
         if type(other) in {float, int}:
-           
             result = self.val + other
 
         elif isinstance(other, Value):
-            
             result = self.val + other.val
-        
         else: 
-
             raise TypeError("second argument is not instance of int, float or Value")
-           
-
         return result
 
-
-    def __sub__(self, other):
-        
+    def __sub__(self, other):        
         if type(other) in {float, int}:
-
             result = self.val - other
-
         elif isinstance(other, Value):
-
             result = self.val - other.val
-
         else: 
-
             raise TypeError("second argument is not instance of int, float or Value")
-
         return result
 
 
 
     def __mul__(self, other):
-        
         if type(other) in {float, int}:
-
             result = self.val * other
-
         elif isinstance(other, Value):
-
             result = self.val * other.val
-
         else:
-
             raise TypeError("second argument is not instance of int, float or Value")
-
         return result
 
        
 
     def __truediv__(self, other):
-
         if other == 0:
            raise MyException
-
         if type(other) in {float, int}:
-
             result = self.val / other
-
         elif isinstance(other, Value):
-
             result = self.val / other.val
-
         else:
-
             raise TypeError("second argument is not instance of int, float or Value")
-
         return result
-
-
-
-
-
-
-

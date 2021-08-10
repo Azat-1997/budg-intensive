@@ -4,44 +4,25 @@ from common import MyException
 
 class ClassFather:
     registered_list = set()
-    @staticmethod
-    def get_name():
-        raise MyException
-
-    @classmethod
-    def register(cls):
-        raise MyException
-
-
-class User1(ClassFather):
-    _name = ''
-
-    @classmethod
-    def register(cls):
-       cls._name = "User1"
-       ClassFather.registered_list.add(cls._name)
-
     @classmethod
     def get_name(cls):
-       if cls._name in ClassFather.registered_list:
-          return cls._name
-       else:
-          raise MyException
+        if cls == ClassFather:
+           raise MyException
+        elif cls._name not in ClassFather.registered_list:
+           raise MyException
 
-       return cls._name
+        return cls._name
+
+    @classmethod
+    def register(cls):
+        if cls == ClassFather:
+           raise MyException
+
+        ClassFather.registered_list.add(cls._name)
+
+class User1(ClassFather):
+    _name = 'Roma'
 
 
 class User2(ClassFather):
-    _name = ''
-
-    @classmethod
-    def register(cls):
-       cls._name = "User2"
-       ClassFather.registered_list.add(cls._name)
-
-    @classmethod
-    def get_name(cls):
-       if cls._name in ClassFather.registered_list:
-           return cls._name
-       else:
-           raise MyException
+    _name = 'Vasya'

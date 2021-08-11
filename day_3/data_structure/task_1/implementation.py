@@ -8,19 +8,22 @@ class Tuple:
 
     def __getitem__(self, key):
         return self.args[key]
-
+    
+    def __repr__(self):
+        return str(self.args)
+    
     def count(self, value):
         """
         Возвращает число раз появления value в объекте
         Args:
             value: Элемент число вхождения которого ищется в объекте
         """
-        cnt = 0
+        counter = 0
         for element in self.args:
             if element == value:
-                cnt += 1
+                counter += 1
 
-        return cnt
+        return counter
 
     def index(self, value):
         """
@@ -30,9 +33,9 @@ class Tuple:
         """
 
         # Вернем -1 если вхождений нет
-        for ind, elem in enumerate(self.args):
-            if elem == value:
-                res = ind
+        for number, element in enumerate(self.args):
+            if element == value:
+                res = number
                 break
         else:
             raise ValueError

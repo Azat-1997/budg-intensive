@@ -31,12 +31,10 @@ class Tuple:
         Args:
             value: Элемент индекс которого ищется в объекте
         """
-
+        if value not in self.elements:
+            raise ValueError
+            
         for number, element in enumerate(self.elements):
             if element == value:
-                res = number
-                break
-        else:
-            raise ValueError
-
-        return res
+                return number
+               

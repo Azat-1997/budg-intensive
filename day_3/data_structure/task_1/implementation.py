@@ -9,7 +9,7 @@ class Tuple:
     def __getitem__(self, key):
         return self.elements[key]
     
-    def __repr__(self):
+    def __str__(self):
         return str(self.elements)
     
     def count(self, value):

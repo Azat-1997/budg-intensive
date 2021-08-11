@@ -32,7 +32,6 @@ class Tuple:
             value: Элемент индекс которого ищется в объекте
         """
 
-        # Вернем -1 если вхождений нет
         for number, element in enumerate(self.args):
             if element == value:
                 res = number

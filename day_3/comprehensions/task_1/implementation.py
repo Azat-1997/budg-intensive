@@ -8,7 +8,7 @@ def great_comprehension(list1, list2, list3):
     return [2 * (x % 10) * int(sqrt(y)) * z for x in list1 for y in list2 for z in list3
             if (x > 9 and str(x)[0] == str(x)[-1]) and
             (y < 1000 and y > 99 and y % 2 == 0) and
-            ((z % 2 == 1) or z == 4)]
+            (z % 2 == 1 or z == 4)]
 
 
 list1 = [12, 2, 17, 44, 131]

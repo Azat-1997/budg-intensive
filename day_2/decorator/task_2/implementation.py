@@ -28,7 +28,7 @@ def check_value(function):
     return wrapper
 
 
-def cache_values(functions):
+def cache_values(function):
    cache = {}
 
    def wrapper(*args):

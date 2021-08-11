@@ -1,10 +1,11 @@
 import unittest
 from sys import path
+path.append("/home/azat/BARS_GROUP/HW/budg-intensive/day3")
+
 from day_3.data_structure.task_1.implementation import (
     Tuple,
 )
 
-path.append("/home/azat/BARS_GROUP/HW/budg-intensive/day3")
 
 class MyTestCase(unittest.TestCase):
     def test_get_element_by_index(self):

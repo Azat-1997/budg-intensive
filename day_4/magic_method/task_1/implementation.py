@@ -1,5 +1,4 @@
 class Multiplier:
-
     def __init__(self, value) -> None:
         super().__init__()
 
@@ -9,12 +8,10 @@ class Multiplier:
             result = eval(str(self.get_value()) + action + str(other.get_value()))
         elif isinstance(other, (int, float)):
             result = eval(str(self.get_value()) + action + str(other))
-
         else:
             raise TypeError
         
         return result
-
 
 class Hundred(Multiplier):
     """Множитель на 100"""
@@ -59,7 +56,6 @@ class Thousand(Multiplier):
     def __truediv__(self, other):
         return Thousand(super()._evaluate(other, "/") / Thousand.__SCALE)
 
-   
 class Million(Multiplier):
     """Множитель на 1 000 000"""
     __SCALE = 1_000_000
@@ -80,5 +76,3 @@ class Million(Multiplier):
 
     def __truediv__(self, other):
         return Million(super()._evaluate(other, "/") / Million.__SCALE)
-
-

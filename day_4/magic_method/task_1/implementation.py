@@ -5,14 +5,8 @@ class Multiplier:
 
    @classmethod
    def get_scale(cls):
-       scaling_factor = None
-       if cls == Hundred:
-            scaling_factor = 100
-       elif cls == Thousand:
-            scaling_factor = 1000
-       elif cls == Million:
-            scaling_factor = 1_000_000        
-       return scaling_factor
+       SCALES = {Hundred: 100, Thousand:1000, Million:1_000_000}
+       return SCALES[cls]
 
    def __add__(self, other):
         if isinstance(other, (Hundred, Thousand, Million)):
@@ -21,7 +15,9 @@ class Multiplier:
             result = self.get_value() + other
         else:
             raise TypeError
-        return result 
+        
+        cls = type(self)
+        return cls(result / cls.get_scale())
 
    def __mul__(self, other):
         if isinstance(other, (Hundred, Thousand, Million)):
@@ -30,7 +26,10 @@ class Multiplier:
             result = self.get_value() * other
         else:
             raise TypeError
-        return result 
+
+        cls = type(self)
+        return cls(result / cls.get_scale())
+
 
    def __sub__(self, other):
         if isinstance(other, (Hundred, Thousand, Million)):
@@ -39,7 +38,8 @@ class Multiplier:
             result = self.get_value() - other
         else:
             raise TypeError
-        return result
+        cls = type(self)
+        return cls(result / cls.get_scale())
 
    def __truediv__(self, other):
         if isinstance(other, (Hundred, Thousand, Million)):
@@ -48,27 +48,16 @@ class Multiplier:
             result = self.get_value() / other
         else:
             raise TypeError
-        return result
+        cls = type(self)
+        return cls(result / cls.get_scale())
 
 class Hundred(Multiplier):
     """Множитель на 100"""
     def __init__(self, value):
-        self.__value = value * Hundred.get_scale() 
+        self.__value = value * Hundred.get_scale()
 
     def get_value(self):
         return self.__value 
-
-    def __add__(self, other):
-        return Hundred(super().__add__(other) / Hundred.get_scale())
-
-    def __mul__(self, other):
-        return Hundred(super().__mul__(other) / Hundred.get_scale())
-    
-    def __sub__(self, other):
-        return Hundred(super().__sub__(other) / Hundred.get_scale())
-
-    def __truediv__(self, other):
-        return Hundred(super().__truediv__(other) / Hundred.get_scale())
 
 class Thousand(Multiplier):
     """Множитель на 1 000"""
@@ -77,17 +66,6 @@ class Thousand(Multiplier):
 
     def get_value(self):
         return self.__value
-    def __add__(self, other):
-        return Thousand(super().__add__(other) / Thousand.get_scale())
-
-    def __mul__(self, other):
-        return Thousand(super().__mul__(other) / Thousand.get_scale())
-
-    def __sub__(self, other):
-        return Thousand(super().__sub__(other) / Thousand.get_scale())
-
-    def __truediv__(self, other):
-        return Thousand(super().__truediv__(other) / Thousand.get_scale())
 
 class Million(Multiplier):
     """Множитель на 1 000 000"""
@@ -97,14 +75,3 @@ class Million(Multiplier):
     def get_value(self):
         return self.__value
 
-    def __add__(self, other):
-        return Million(super().__add__(other) / Million.get_scale())
-
-    def __mul__(self, other):
-        return Million(super().__mul__(other) / Million.get_scale())
-
-    def __sub__(self, other):
-        return Million(super().__sub__(other) / Million.get_scale())
-
-    def __truediv__(self, other):
-        return Million(super().__truediv__(other) / Million.get_scale())

@@ -1,0 +1,28 @@
+import unittest
+from sys import path
+path.append("/home/azat/BARS_GROUP/budg-intensive")
+
+from day_5.generators.task1.implementation import (
+    fib,
+)
+
+
+class MyTestCase(unittest.TestCase):
+    def test_fib_first_element(self):
+        for num in fib(1):
+            pass
+        self.assertEqual(num, 1)
+
+    def test_fib_third_element(self):
+        for num in fib(3):
+            pass
+        self.assertEqual(num, 2)
+
+    def test_fib_hundredth_element(self):
+        for num in fib(100):
+            pass
+        self.assertEqual(num, 354224848179261915075)
+
+
+if __name__ == '__main__':
+    unittest.main()
